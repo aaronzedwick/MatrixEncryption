@@ -123,3 +123,15 @@ void Encryption::displayOutput()
     }
     cout << endl;
 }
+
+void Encryption::setMatrix(int (& param)[3][3])
+{
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; i++)
+        {
+            matrixToMultiply[i][j] = param[i][j];
+            cout << "\nInputed: " << param[i][j];
+        }
+    }
+}

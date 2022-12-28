@@ -3,16 +3,18 @@
 #include <vector>
 #include "Encryption.h"
 #include "Decryption.h"
+#include "KeySettings.h"
 
 using namespace std;
 int main()
 {
     int menuChoice = 0;
-    while (menuChoice != 3)
+    while (menuChoice != 4)
     {
         Encryption encrypt;
         Decryption decrypt;
-        cout << "\n1. Encrypt\n2. Decrypt\n3. Exit\nEnter Choice: ";
+        KeySettings key;
+        cout << "1. Encrypt\n2. Decrypt\n3. Edit Key Settings\n4. Exit\n\nEnter Selection: ";
         cin >> menuChoice;
         switch (menuChoice)
         {
@@ -20,7 +22,9 @@ int main()
                 break;
             case 2: decrypt.textDecrypt();
                 break;
-            default: menuChoice = 3;
+            case 3: key.keyDisplay();
+                break;
+            default: menuChoice = 4;
                 break;
         }
     }
