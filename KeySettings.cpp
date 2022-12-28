@@ -24,6 +24,7 @@ void KeySettings::keyDisplay()
 		cout << "\nYour current key in use: \n";
 		for (int i = 0; i < 3; i++)
 		{
+			cout << " ";
 			for (int j = 0; j < 3; j++)
 			{
 				cout << key[i][j] << " ";
@@ -74,7 +75,7 @@ void KeySettings::generateKey()
 	matrix2[2][1] = 0;
 	for (int i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < 3; j++)
 		{
 			for (int k = 0; k < 3; k++)
 			{
@@ -82,6 +83,11 @@ void KeySettings::generateKey()
 			}
 		}
 	}
-	keySetter.setMatrix(key);
-
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			keySetter.setMatrix(key[j][i], i, j);
+		}
+	}
 }

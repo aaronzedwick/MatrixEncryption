@@ -69,10 +69,10 @@ void Encryption::seeMatrix()
     cout << endl << "Output Matrix: " << endl;
     for (int i = 0; i < 3; ++i)
     {
-        for (int j = 0; j < 5; ++j)
+        for (int j = 0; j < 3; ++j)
         {
-            cout << " " << mutipliedMatrix[i][j];
-            if (j == 5 - 1)
+            cout << " " << matrixToMultiply[i][j];
+            if (j == 3 - 1)
             {
                 cout << endl;
             }
@@ -124,14 +124,7 @@ void Encryption::displayOutput()
     cout << endl;
 }
 
-void Encryption::setMatrix(int (& param)[3][3])
+void Encryption::setMatrix(int param, int i, int j)
 {
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; i++)
-        {
-            matrixToMultiply[i][j] = param[i][j];
-            cout << "\nInputed: " << param[i][j];
-        }
-    }
+    matrixToMultiply[j][i] = param;
 }
