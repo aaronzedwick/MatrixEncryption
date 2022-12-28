@@ -20,5 +20,6 @@ public:
     void matrixTransformation();
     void vectorMultiplication();
     void displayOutput();
+    void setMatrix(int (& param)[3][3]);
 };
 
