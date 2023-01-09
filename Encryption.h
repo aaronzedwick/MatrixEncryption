@@ -7,7 +7,7 @@ class Encryption
 {
 private:
     int originMatrix[3][5];
-    int matrixToMultiply[3][3] = { {0, 0, 0}, {0, 0, 0}, {0, 0, 0} };//{ {1, 5, 3}, {2, 11, 8}, {4, 24, 21} };
+    int matrixToMultiply[3][3]; // 1 5 3 2 11 8 4 24 21
     int mutipliedMatrix[3][5];
     vector<int> encrypted;
     string input = "";

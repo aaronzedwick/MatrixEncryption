@@ -14,6 +14,10 @@ void Encryption::getInput()
 /*This functions put everything together and runs all the encryption methods*/
 void Encryption::textEncryption()
 {
+    if (encrypted.size() != 0)
+    {
+        encrypted.clear();
+    }
     getInput();
     int sizeOfString = input.size();
     while (sizeOfString % 15 != 0) //The string MUST be 15 chars for a 3x5 matrix, so this adds spaces if it is not
@@ -36,9 +40,8 @@ void Encryption::textEncryption()
         stringToMatrix();
         vectorMultiplication();
         matrixTransformation();
-        seeMatrix();
     }
-    /*Displays it to see if it worked properly*/
+    /*Displays output*/
     displayOutput();
     
 }
@@ -108,7 +111,19 @@ void Encryption::vectorMultiplication()
         {
             for (int k = 0; k < 3; k++)
             {
-                mutipliedMatrix[i][j] += matrixToMultiply[i][k] * originMatrix[k][j];
+                mutipliedMatrix[i][j] += matrixToMultiply[i][k] * (originMatrix[k][j]);
+            }
+        }
+    }
+    cout << endl << "Multiplied Matrix: " << endl;
+    for (int i = 0; i < 3; ++i)
+    {
+        for (int j = 0; j < 5; ++j)
+        {
+            cout << " " << mutipliedMatrix[i][j];
+            if (j == 5 - 1)
+            {
+                cout << endl;
             }
         }
     }
