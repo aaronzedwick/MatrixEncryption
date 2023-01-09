@@ -14,9 +14,25 @@ void Encryption::getInput()
 /*This functions put everything together and runs all the encryption methods*/
 void Encryption::textEncryption()
 {
+    bool allZero = true;
     if (encrypted.size() != 0)
     {
         encrypted.clear();
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (matrixToMultiply[i][j] != 0)
+            {
+                allZero = false;
+            }
+        }
+    }
+    if (allZero)
+    {
+        cout << "\nPlease Enter a valid key\n";
+        return;
     }
     getInput();
     int sizeOfString = input.size();
@@ -115,23 +131,12 @@ void Encryption::vectorMultiplication()
             }
         }
     }
-    cout << endl << "Multiplied Matrix: " << endl;
-    for (int i = 0; i < 3; ++i)
-    {
-        for (int j = 0; j < 5; ++j)
-        {
-            cout << " " << mutipliedMatrix[i][j];
-            if (j == 5 - 1)
-            {
-                cout << endl;
-            }
-        }
-    }
 }
 /*Loops through the vector that holds the data stored by a previous function*/
 void Encryption::displayOutput()
 {
     int inputLength = encrypted.size();
+    cout << endl << "Your encrypted string:\n";
     for (int i = 0; i < inputLength; i++)
     {
         cout << static_cast<char>(encrypted[i]);
