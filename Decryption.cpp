@@ -6,9 +6,25 @@
 
 void Decryption::textDecrypt()
 {
+	bool allZero = true;
 	if (encrypted.size() != 0)
 	{
 		encrypted.clear();
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (matrixToMultiply[i][j] != 0)
+			{
+				allZero = false;
+			}
+		}
+	}
+	if (allZero)
+	{
+		cout << "\nPlease Enter a valid key\n";
+		return;
 	}
 	inverseMatrix();
 	getInput();
@@ -109,6 +125,7 @@ void Decryption::getInput()
 void Decryption::displayOutput()
 {
 	int inputLength = encrypted.size();
+	cout << endl << "Your decrypted string: ";
 	for (int i = 0; i < inputLength; i++)
 	{
 		cout << static_cast<char>(encrypted[i]);

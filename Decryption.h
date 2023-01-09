@@ -4,7 +4,7 @@ class Decryption
 {
 private:
     int originMatrix[3][5];
-    int matrixToMultiply[3][3]; 
+    int matrixToMultiply[3][3] = {{ 0,0,0 }, { 0,0,0 }, { 0,0,0 }};
     int invertedMatrix[3][3];
     int multipliedMatrix[3][5];
     vector<int> encrypted;
